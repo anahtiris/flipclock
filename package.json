@@ -1,0 +1,69 @@
+{
+  "name": "@anahtiris/flipclock",
+  "version": "1.0.0",
+  "description": "React date/time picker rendered as a flip clock with smooth 3D CSS animations",
+  "keywords": ["react", "flip-clock", "date-picker", "time-picker", "countdown", "animation", "component", "typescript"],
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/flipclock.cjs",
+  "module": "./dist/flipclock.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/flipclock.js",
+      "require": "./dist/flipclock.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/flipclock.css": "./dist/flipclock.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && tsc -p tsconfig.lib.json",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@eslint/js": "^10.0.1",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/addon-mcp": "^0.6.0",
+    "@storybook/addon-vitest": "^10.4.1",
+    "@storybook/react-vite": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/browser-playwright": "^4.1.7",
+    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/ui": "^4.1.7",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "eslint-plugin-storybook": "^10.4.1",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.60.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "storybook": "^10.4.1",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12",
+    "vite-plugin-dts": "^5.0.1",
+    "vitest": "^4.1.7"
+  }
+}

@@ -1,0 +1,10 @@
+export type DateValue = { year: number; month: number; day: number }
+export type TimeValue = { hour: number; minute: number; second?: number; period?: 'AM' | 'PM' }
+export type DateTimeValue = DateValue & TimeValue
+export type CountdownValue = { days: number; hours: number; minutes: number; seconds: number }
+export type FlipClockValue = DateValue | TimeValue | DateTimeValue | CountdownValue
+export type FlipClockMode = 'date' | 'time' | 'datetime' | 'countdown'
+export type ScrollMode = 'digit' | 'unit'
+export type FlipClockSize = 'sm' | 'md' | 'lg'
+export type FlipClockTheme = 'dark' | 'light'
+export type FlipDirection = 1 | -1

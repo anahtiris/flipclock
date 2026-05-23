@@ -1,0 +1,42 @@
+.fc-root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fc-row { display: flex; align-items: center; gap: 16px; }
+
+.fc-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+.fc-unit[data-label]::before {
+  content: attr(data-label);
+  min-height: 9px;
+  font-size: 9px;
+  line-height: 1;
+  font-family: ui-monospace, 'SF Mono', monospace;
+  letter-spacing: 2.5px;
+  color: var(--fc-label, #3a3a3a);
+}
+
+.fc-cards { display: flex; gap: 5px; }
+
+.fc-gap { width: 24px; }
+
+.fc-sep {
+  font-size: 44px;
+  font-weight: 200;
+  color: var(--fc-sep, #222);
+  line-height: 1;
+  user-select: none;
+}
+/* Push sep down by (label 9px + gap 9px) / 2 = 9px so it aligns with card centers */
+.fc-row[data-labeled="true"] .fc-sep { margin-top: 9px; }
+
+.fc-root[data-disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}

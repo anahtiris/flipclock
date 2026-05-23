@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Card 1: outer frame -->
+  <rect x="9" y="22" width="38" height="56" rx="5" fill="#0d0d0d"/>
+  <!-- Card 1: top face — rounded top corners, squared-off bottom -->
+  <rect x="10" y="23" width="36" height="26" rx="4" fill="#1d1d1d"/>
+  <rect x="10" y="45" width="36" height="4" fill="#1d1d1d"/>
+  <!-- Card 1: bottom face — rounded bottom corners, squared-off top -->
+  <rect x="10" y="51" width="36" height="26" rx="4" fill="#1d1d1d"/>
+  <rect x="10" y="51" width="36" height="4" fill="#1d1d1d"/>
+  <!-- Card 1: digit centred at crease -->
+  <text x="28" y="50" text-anchor="middle" dominant-baseline="middle"
+        font-family="ui-monospace,'SF Mono',monospace" font-weight="800" font-size="34"
+        fill="#ededed">5</text>
+
+  <!-- Card 2: outer frame -->
+  <rect x="53" y="22" width="38" height="56" rx="5" fill="#0d0d0d"/>
+  <!-- Card 2: top face -->
+  <rect x="54" y="23" width="36" height="26" rx="4" fill="#1d1d1d"/>
+  <rect x="54" y="45" width="36" height="4" fill="#1d1d1d"/>
+  <!-- Card 2: bottom face -->
+  <rect x="54" y="51" width="36" height="26" rx="4" fill="#1d1d1d"/>
+  <rect x="54" y="51" width="36" height="4" fill="#1d1d1d"/>
+  <!-- Card 2: digit centred at crease -->
+  <text x="72" y="50" text-anchor="middle" dominant-baseline="middle"
+        font-family="ui-monospace,'SF Mono',monospace" font-weight="800" font-size="34"
+        fill="#ededed">5</text>
+</svg>
