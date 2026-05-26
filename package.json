@@ -1,11 +1,22 @@
 {
   "name": "@anahtiris/flipclock",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React date/time picker rendered as a flip clock with smooth 3D CSS animations",
-  "keywords": ["react", "flip-clock", "date-picker", "time-picker", "countdown", "animation", "component", "typescript"],
+  "keywords": [
+    "react",
+    "flip-clock",
+    "date-picker",
+    "time-picker",
+    "countdown",
+    "animation",
+    "component",
+    "typescript"
+  ],
   "license": "MIT",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/flipclock.cjs",
   "module": "./dist/flipclock.js",
   "types": "./dist/index.d.ts",
