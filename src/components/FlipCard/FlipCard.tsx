@@ -1,10 +1,7 @@
-import { useRef, useEffect } from 'react'
+import { memo, useRef, useEffect } from 'react'
 import type { FlipClockTheme, FlipClockSize, FlipDirection } from '../../types'
-import { makeScrollHandler } from '../../utils/scroll'
+import { FLIP_DURATION_MS, FLIP_OVERLAP_MS, makeScrollHandler } from '../../utils/scroll'
 import './FlipCard.css'
-
-const DUR = 160
-const OVLP = 60
 
 function setText(layer: HTMLDivElement, val: string) {
   const d = layer.querySelector<HTMLDivElement>('.fc-d')
@@ -14,10 +11,10 @@ function setText(layer: HTMLDivElement, val: string) {
 function animateFlip(
   flapTop: HTMLDivElement, flapBot: HTMLDivElement,
   backTop: HTMLDivElement, backBot: HTMLDivElement,
-  from: string, to: string, dir: FlipDirection
+  from: string, to: string, dir: FlipDirection,
 ): ReturnType<typeof setTimeout> {
-  const exit = `${DUR}ms ease-in-out forwards`
-  const enter = `${DUR}ms ease-in-out ${DUR - OVLP}ms forwards`
+  const exit = `${FLIP_DURATION_MS}ms ease-in-out forwards`
+  const enter = `${FLIP_DURATION_MS}ms ease-in-out ${FLIP_DURATION_MS - FLIP_OVERLAP_MS}ms forwards`
 
   if (dir === -1) {
     setText(backTop, to)
@@ -38,12 +35,12 @@ function animateFlip(
   }
 
   return setTimeout(() => {
-    [flapTop, flapBot, backTop, backBot].forEach(el => {
+    for (const el of [flapTop, flapBot, backTop, backBot]) {
       setText(el, to)
       el.style.animation = ''
       el.style.transform = ''
-    })
-  }, DUR + DUR - OVLP + 40)
+    }
+  }, FLIP_DURATION_MS + FLIP_DURATION_MS - FLIP_OVERLAP_MS + 40)
 }
 
 export interface FlipCardProps {
@@ -55,7 +52,9 @@ export interface FlipCardProps {
   onScroll?: (dir: FlipDirection) => void
 }
 
-export function FlipCard({ value, theme, size, wide = false, dir = -1, onScroll }: FlipCardProps) {
+export const FlipCard = memo(function FlipCard({
+  value, theme, size, wide = false, dir = -1, onScroll,
+}: FlipCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const backTopRef = useRef<HTMLDivElement>(null)
   const backBotRef = useRef<HTMLDivElement>(null)
@@ -63,7 +62,7 @@ export function FlipCard({ value, theme, size, wide = false, dir = -1, onScroll 
   const flapBotRef = useRef<HTMLDivElement>(null)
   const prevValue = useRef(value)
   const onScrollRef = useRef(onScroll)
-  useEffect(() => { onScrollRef.current = onScroll })
+  onScrollRef.current = onScroll
 
   useEffect(() => {
     let timerId: ReturnType<typeof setTimeout> | undefined
@@ -75,7 +74,7 @@ export function FlipCard({ value, theme, size, wide = false, dir = -1, onScroll 
       timerId = animateFlip(
         flapTopRef.current, flapBotRef.current,
         backTopRef.current, backBotRef.current,
-        prevValue.current, value, dir
+        prevValue.current, value, dir,
       )
     }
     prevValue.current = value
@@ -99,4 +98,4 @@ export function FlipCard({ value, theme, size, wide = false, dir = -1, onScroll 
       <div className="fc-crease" />
     </div>
   )
-}
+})

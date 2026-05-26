@@ -8,3 +8,40 @@ export type ScrollMode = 'digit' | 'unit'
 export type FlipClockSize = 'sm' | 'md' | 'lg'
 export type FlipClockTheme = 'dark' | 'light'
 export type FlipDirection = 1 | -1
+
+type FlipClockSharedProps = {
+  theme?: FlipClockTheme
+  size?: FlipClockSize
+  scrollMode?: ScrollMode
+  showSeconds?: boolean
+  showLabels?: boolean
+  hour12?: boolean
+  readOnly?: boolean
+  disabled?: boolean
+}
+
+export type FlipClockProps =
+  | (FlipClockSharedProps & {
+      mode: 'date'
+      value?: DateValue
+      defaultValue?: DateValue
+      onChange?: (value: DateValue) => void
+    })
+  | (FlipClockSharedProps & {
+      mode: 'time'
+      value?: TimeValue
+      defaultValue?: TimeValue
+      onChange?: (value: TimeValue) => void
+    })
+  | (FlipClockSharedProps & {
+      mode: 'datetime'
+      value?: DateTimeValue
+      defaultValue?: DateTimeValue
+      onChange?: (value: DateTimeValue) => void
+    })
+  | (FlipClockSharedProps & {
+      mode: 'countdown'
+      value?: CountdownValue
+      defaultValue?: CountdownValue
+      onChange?: (value: CountdownValue) => void
+    })

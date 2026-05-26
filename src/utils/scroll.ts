@@ -1,8 +1,8 @@
 import type { FlipDirection } from '../types'
 
-const DUR = 160
-const OVLP = 60
-const ANIM_LOCK = (DUR - OVLP) + DUR + 60
+export const FLIP_DURATION_MS = 160
+export const FLIP_OVERLAP_MS = 60
+const ANIM_LOCK = (FLIP_DURATION_MS - FLIP_OVERLAP_MS) + FLIP_DURATION_MS + 60
 const DELTA_PER_FLIP = 60
 
 export function makeScrollHandler(onFlip: (dir: FlipDirection) => void) {

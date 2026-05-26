@@ -92,10 +92,10 @@ function toCountdown(target: Date) {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `mode` | `'date' \| 'time' \| 'datetime' \| 'countdown'` | — | **Required.** |
-| `value` | `FlipClockValue` | — | Controlled value. |
-| `defaultValue` | `FlipClockValue` | — | Initial value for uncontrolled usage. |
-| `onChange` | `(value: FlipClockValue) => void` | — | Called on every user scroll. |
+| `mode` | `'date' \| 'time' \| 'datetime' \| 'countdown'` | — | **Required.** Discriminates `value` / `defaultValue` / `onChange`. |
+| `value` | per-`mode` (see [Types](#types)) | — | Controlled value. Type is narrowed by `mode`. |
+| `defaultValue` | per-`mode` | — | Initial value for uncontrolled usage. Type is narrowed by `mode`. |
+| `onChange` | per-`mode` | — | Called on every user scroll. Type is narrowed by `mode`. |
 | `theme` | `'dark' \| 'light'` | `'dark'` | Visual theme. |
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Card size. |
 | `scrollMode` | `'digit' \| 'unit'` | `'digit'` | Scroll behaviour. |
@@ -124,6 +124,13 @@ type FlipClockMode  = 'date' | 'time' | 'datetime' | 'countdown'
 type FlipClockTheme = 'dark' | 'light'
 type FlipClockSize  = 'sm' | 'md' | 'lg'
 type ScrollMode     = 'digit' | 'unit'
+
+// FlipClockProps is a discriminated union on `mode`:
+type FlipClockProps =
+  | { mode: 'date';      value?: DateValue;      defaultValue?: DateValue;      onChange?: (v: DateValue) => void;      /* ...shared */ }
+  | { mode: 'time';      value?: TimeValue;      defaultValue?: TimeValue;      onChange?: (v: TimeValue) => void;      /* ...shared */ }
+  | { mode: 'datetime';  value?: DateTimeValue;  defaultValue?: DateTimeValue;  onChange?: (v: DateTimeValue) => void;  /* ...shared */ }
+  | { mode: 'countdown'; value?: CountdownValue; defaultValue?: CountdownValue; onChange?: (v: CountdownValue) => void; /* ...shared */ }
 ```
 
 ## License
