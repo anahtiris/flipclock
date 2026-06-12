@@ -5,7 +5,7 @@ export type CountdownValue = { days: number; hours: number; minutes: number; sec
 export type FlipClockValue = DateValue | TimeValue | DateTimeValue | CountdownValue
 export type FlipClockMode = 'date' | 'time' | 'datetime' | 'countdown'
 export type ScrollMode = 'digit' | 'unit'
-export type FlipClockSize = 'sm' | 'md' | 'lg'
+export type FlipClockSize = 'xs' | 'sm' | 'md' | 'lg'
 export type FlipClockTheme = 'dark' | 'light'
 export type FlipDirection = 1 | -1
 

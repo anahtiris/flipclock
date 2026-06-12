@@ -4,13 +4,13 @@
   align-items: flex-start;
 }
 
-.fc-row { display: flex; align-items: center; gap: 16px; }
+.fc-row { display: flex; align-items: center; gap: var(--fc-row-gap, 16px); }
 
 .fc-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 9px;
+  gap: var(--fc-unit-gap, 9px);
 }
 .fc-unit[data-label]::before {
   content: attr(data-label);
@@ -22,9 +22,9 @@
   color: var(--fc-label, #3a3a3a);
 }
 
-.fc-cards { display: flex; gap: 5px; }
+.fc-cards { display: flex; gap: var(--fc-cards-gap, 5px); }
 
-.fc-gap { width: 24px; }
+.fc-gap { width: var(--fc-gap-w, 24px); }
 
 .fc-sep {
   font-size: 44px;

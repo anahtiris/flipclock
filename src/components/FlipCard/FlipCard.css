@@ -1,3 +1,7 @@
+.fc-xs {
+  --fc-card-w: 24px; --fc-card-h: 32px; --fc-font: 14px;
+  --fc-row-gap: 8px; --fc-unit-gap: 4px; --fc-cards-gap: 3px; --fc-gap-w: 12px;
+}
 .fc-sm { --fc-card-w: 36px; --fc-card-h: 50px; --fc-font: 24px; }
 .fc-md { --fc-card-w: 54px; --fc-card-h: 76px; --fc-font: 38px; }
 .fc-lg { --fc-card-w: 72px; --fc-card-h: 100px; --fc-font: 50px; }

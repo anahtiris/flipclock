@@ -7,7 +7,7 @@ Aesthetic-first — built around the visual charm of the flip clock, not optimiz
 
 - **Modes:** `date`, `time`, `datetime`, `countdown`
 - **Themes:** `dark`, `light`
-- **Sizes:** `sm`, `md`, `lg`
+- **Sizes:** `xs`, `sm`, `md`, `lg`
 - **Scroll modes:** `digit` (each card independent) or `unit` (whole field steps at once)
 - **12 and 24-hour** time with AM/PM card
 - **Controlled and uncontrolled** usage
@@ -97,7 +97,7 @@ function toCountdown(target: Date) {
 | `defaultValue` | per-`mode` | — | Initial value for uncontrolled usage. Type is narrowed by `mode`. |
 | `onChange` | per-`mode` | — | Called on every user scroll. Type is narrowed by `mode`. |
 | `theme` | `'dark' \| 'light'` | `'dark'` | Visual theme. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Card size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Card size. |
 | `scrollMode` | `'digit' \| 'unit'` | `'digit'` | Scroll behaviour. |
 | `showSeconds` | `boolean` | `false` | Show seconds (time / datetime). |
 | `showLabels` | `boolean` | `true` | Show field labels above cards. |
@@ -122,7 +122,7 @@ type FlipClockValue = DateValue | TimeValue | DateTimeValue | CountdownValue
 
 type FlipClockMode  = 'date' | 'time' | 'datetime' | 'countdown'
 type FlipClockTheme = 'dark' | 'light'
-type FlipClockSize  = 'sm' | 'md' | 'lg'
+type FlipClockSize  = 'xs' | 'sm' | 'md' | 'lg'
 type ScrollMode     = 'digit' | 'unit'
 
 // FlipClockProps is a discriminated union on `mode`:
